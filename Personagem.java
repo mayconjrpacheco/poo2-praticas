@@ -30,6 +30,10 @@ public abstract class Personagem extends Observable {
         this.y = y;
     }
 
+    public void setPoder(String poder) {
+        this.ataque.setPoder(poder);
+    }
+
     public void setLife(int life) {
         this.life = life;
     }
