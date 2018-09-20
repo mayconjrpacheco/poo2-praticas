@@ -1,24 +1,21 @@
 public class main {
-    public static void main(String[] args) {
-        Personagem01 personagem01 = new Personagem01();
+    public static void main(String[] args) throws InterruptedException {
+        Personagem01 personagem01 = new Personagem01(500, 10, 10);
         Personagem02 personagem02 = new Personagem02();
         Personagem03 personagem03 = new Personagem03();
 
-        System.out.println("Personagem 01:");
-        personagem01.atacar();
-        personagem01.pular();
-        personagem01.correr();
-        System.out.println("");
+        Inimigo inimigo01 = new Inimigo(20, 0);
+        Inimigo inimigo02 = new Inimigo(100, 300);
+        Inimigo inimigo03 = new Inimigo(1000, 300);
 
-        System.out.println("Personagem 02:");
-        personagem02.atacar();
-        personagem02.pular();
-        personagem02.correr();
-        System.out.println("");
+        personagem01.addObserver(inimigo01);
+        personagem01.addObserver(inimigo02);
+        personagem01.addObserver(inimigo03);
 
-        System.out.println("Personagem 03:");
-        personagem03.atacar();
-        personagem03.pular();
-        personagem03.correr();
+        while(true) {
+            personagem01.show();
+            Thread.sleep(1000);
+        }
+
     }
 }

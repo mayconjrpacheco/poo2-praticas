@@ -1,8 +1,13 @@
-public abstract class Personagem {
+import java.util.Observable;
+
+public abstract class Personagem extends Observable {
 
     private Ataque ataque;
     private Pulo pulo;
     private Corrida corrida;
+    private int x = 0;
+    private int y = 0;
+    private int life = 0;
 
     public void setStratey(Ataque ataque, Pulo pulo, Corrida corrida) {
         this.ataque = ataque;
@@ -10,9 +15,7 @@ public abstract class Personagem {
         this.corrida = corrida;
     }
 
-    public void atacar() {
-        this.ataque.atacar();
-    }
+    public void atacar() { this.ataque.atacar(); }
 
     public void pular() {
         this.pulo.pular();
@@ -21,5 +24,32 @@ public abstract class Personagem {
     public void correr() {
         this.corrida.correr();
     }
+
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getLife() {
+        return this.life;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void show() {
+        setChanged();
+        notifyObservers();
+    }
+
 
 }
