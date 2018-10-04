@@ -8,6 +8,23 @@ public abstract class Personagem extends Observable {
     private int x = 0;
     private int y = 0;
     private int life = 0;
+    private Escudo escudo;
+
+    public void setEscudo(Escudo escudo) {
+        this.escudo = escudo;
+    }
+
+    public Escudo getEscudo() {
+        return escudo;
+    }
+
+    public void Dano(int dano) {
+        this.life = this.life - dano;
+
+        if (this.life <= 0) {
+            System.out.println("Personagem morreu");
+        }
+    }
 
     public void setStratey(Ataque ataque, Pulo pulo, Corrida corrida) {
         this.ataque = ataque;
